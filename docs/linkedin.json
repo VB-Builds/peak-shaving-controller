@@ -1,0 +1,13 @@
+{
+  "claim": "A forecast-planned battery cut a simulated factory's demand charge by CHF 36k a year.",
+  "data_label": "simulated factory load, 2026 | tariff: published 2026 Swiss grid tariff, CHF 15/kW/month",
+  "stats": [
+    ["35.9 k", "CHF/yr saved, 500 kWh battery", "accent"],
+    ["80 %", "of the perfect-hindsight saving", "green"],
+    ["5/12", "months with a new peak anyway", "amber"]
+  ],
+  "limit": "Simulated load only; no real site, meter or battery was tested, and battery ageing is not modelled.",
+  "alt": "Dark chart. Top: monthly billed peak of a simulated factory over 2026 for no battery, a fixed threshold, a forecast plus LP controller and perfect hindsight, with red rings on the five months the forecast was exceeded. Bottom: net saving per year against battery size from 100 to 2000 kWh for the three strategies, with a dashed line for the assumed battery cost.",
+  "hashtags": ["#Lastmanagement", "#Spitzenlast", "#Energieeffizienz", "#Industrie40", "#Batteriespeicher", "#IoT", "#OpenSource"],
+  "post": "A factory on a demand tariff pays for its single worst quarter hour every month. One cold Monday 06:00 start-up can set the bill for the next four weeks.\n\nI built peak-shaving-controller, an open-source Python study of battery peak shaving against a monthly demand charge (CHF 15 per kW per month, from a published 2026 Swiss grid tariff). It compares no battery, a fixed threshold, a controller that plans each month's threshold with a linear programme on a load forecast, and the perfect-hindsight optimum.\n\nOn a simulated factory year with a 500 kWh / 250 kW battery, the forecast controller saved CHF 35 900 a year, 80 % of the hindsight optimum (CHF 44 900). A fixed threshold saved CHF 18 000 and sat idle for four summer months. The forecast was exceeded in 5 of 12 months, but those misses cost nothing; the loss came from months where it planned too high after a busier month. At an assumed CHF 450 per kWh, extra capacity stopped paying above about 1 000 kWh.\n\nNot verified: the load is simulated, nothing ran on a real site or battery, and ageing is not modelled.\n\nHow do you set the monthly threshold: last month's peak, a weather forecast, or the production plan?\n\nCode: https://github.com/Usernamepersonperson/peak-shaving-controller"
+}
